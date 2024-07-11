@@ -5,7 +5,7 @@ const chatInput=document.querySelector(".chat-input textarea");
 const sendChatBtn=document.querySelector(".chat-input span");
 
 let userMessage;
-// const API_KEY="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";
+const API_KEY="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";
 
 const createChatLi = (message,className) => {
     const chatLi=document.createElement("li");
@@ -16,14 +16,13 @@ const createChatLi = (message,className) => {
 }
 
 const generateResponse=(chatElement) => {
-    const API_URL='https://chat-gpt26.p.rapidapi.com/';
+    const API_URL="https://api.openai.com/v1/chat/completions";
 
     const requestOptions = {
         method: "POST",
         headers: {
-            'x-rapidapi-key': 'f646928b0bmsh821e188b1a684acp16247cjsn9b257733cf28',
-            'x-rapidapi-host': 'chat-gpt26.p.rapidapi.com',
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${API_KEY}`
         },
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
